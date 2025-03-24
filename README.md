@@ -1,3 +1,124 @@
+# Организатор мероприятий
+
+Приложение для организации совместных мероприятий, распределения задач и управления общим бюджетом.
+
+## Особенности
+
+- Создание и управление мероприятиями
+- Приглашение участников
+- Учет коллективных расходов и автоматический расчет баланса
+- Распределение задач между участниками
+- Интуитивный и современный интерфейс
+
+## Технический стек
+
+### Frontend
+- React
+- React Router
+- Axios
+- Tailwind CSS
+
+### Backend
+- Java 11
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- JWT для аутентификации
+
+### База данных
+- PostgreSQL
+
+## Запуск проекта
+
+### Предварительные требования
+
+- JDK 11 или выше
+- Node.js и npm
+- PostgreSQL
+- Docker и Docker Compose (опционально)
+
+### Без Docker
+
+#### База данных
+1. Установите PostgreSQL
+2. Создайте базу данных и пользователя
+3. Выполните скрипт `database/init.sql`
+
+#### Backend
+1. Перейдите в каталог `backend`
+2. Обновите `application.properties` с настройками вашей БД
+3. Соберите и запустите приложение:
+   ```
+   ./mvnw clean install
+   ./mvnw spring-boot:run
+   ```
+
+#### Frontend
+1. Перейдите в каталог `frontend`
+2. Установите зависимости:
+   ```
+   npm install
+   ```
+3. Запустите приложение:
+   ```
+   npm start
+   ```
+
+### С Docker
+
+Просто выполните:
+```
+docker-compose up -d
+```
+
+## Структура проекта
+
+### Frontend
+
+```
+frontend/
+├── public/                  # Статические файлы
+├── src/
+│   ├── assets/              # Изображения, шрифты
+│   ├── components/          # React компоненты
+│   ├── pages/               # Страницы приложения
+│   ├── services/            # Сервисы для API запросов
+│   ├── utils/               # Утилиты
+│   ├── App.js               # Корневой компонент
+│   └── index.js             # Точка входа
+```
+
+### Backend
+
+```
+backend/
+├── src/
+│   ├── main/
+│   │   ├── java/ru/organizer/
+│   │   │   ├── controllers/ # REST контроллеры
+│   │   │   ├── models/      # Бизнес модели
+│   │   │   ├── repositories/# Репозитории для доступа к БД
+│   │   │   ├── services/    # Бизнес-логика
+│   │   │   ├── config/      # Конфигурации
+│   │   │   └── Application.java # Точка входа
+│   │   └── resources/
+│   │       ├── application.properties # Конфигурация Spring
+│   │       └── db/migration/  # Миграции БД
+```
+
+## API Endpoints
+
+| Метод | URL | Описание |
+|-------|-----|----------|
+| GET | /api/events | Получить все мероприятия |
+| GET | /api/events/{id} | Получить мероприятие по ID |
+| POST | /api/events | Создать новое мероприятие |
+| PUT | /api/events/{id} | Обновить существующее мероприятие |
+| DELETE | /api/events/{id} | Удалить мероприятие |
+| GET | /api/events/user/{userId} | Получить мероприятия пользователя |
+| POST | /api/events/{eventId}/participants/{userId} | Добавить участника |
+| DELETE | /api/events/{eventId}/participants/{userId} | Удалить участника |
+
 # Приложение для организации совместных мероприятий
 
 Это приложение предназначено для планирования совместных мероприятий, распределения задач между участниками и управления общим бюджетом.
@@ -68,3 +189,40 @@ npm run dev
 - Добавление интеграции с Telegram ботом
 - Реализация API для мобильного приложения
 - Расширение функциональности итогового расчета финансов 
+
+
+project-root/
+├── frontend/                    # React приложение
+│   ├── public/                  # Статические файлы
+│   ├── src/
+│   │   ├── assets/              # Изображения, шрифты
+│   │   ├── components/          # React компоненты
+│   │   ├── pages/               # Страницы приложения
+│   │   ├── services/            # Сервисы для API запросов
+│   │   ├── utils/               # Утилиты
+│   │   ├── App.js               # Корневой компонент
+│   │   └── index.js             # Точка входа
+│   ├── package.json             # Зависимости npm
+│   └── README.md
+│
+├── backend/                     # Java Spring Boot приложение
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/ru/organizer/
+│   │   │   │   ├── controllers/ # REST контроллеры
+│   │   │   │   ├── models/      # Бизнес модели
+│   │   │   │   ├── repositories/# Репозитории для доступа к БД
+│   │   │   │   ├── services/    # Бизнес-логика
+│   │   │   │   ├── config/      # Конфигурации
+│   │   │   │   └── Application.java # Точка входа
+│   │   │   └── resources/
+│   │   │       ├── application.properties # Конфигурация Spring
+│   │   │       └── db/migration/  # Миграции БД
+│   │   └── test/                  # Тесты
+│   ├── pom.xml                    # Maven зависимости
+│   └── README.md
+│
+├── database/                    # Скрипты БД PostgreSQL
+│   └── init.sql                 # Начальная структура БД
+│
+└── docker-compose.yml           # Для локальной разработки

@@ -55,6 +55,7 @@ pnpm-debug.log*
 .rts2_cache_cjs/
 .rts2_cache_es/
 .rts2_cache_umd/
+.backend/target
 
 # Файлы сборки и временные файлы
 /frontend/build
