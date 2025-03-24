@@ -1,0 +1,66 @@
+# Зависимости
+/node_modules
+.node_modules
+**/.node_modules
+**/.node_modules/**
+/.pnp
+.pnp.js
+**/.bin/
+
+# Сборка
+/build
+/dist
+/out
+/.next/
+.next/
+
+# Тестирование
+/coverage
+
+# Логи
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Локальные настройки
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Редакторы
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.classpath
+*.launch
+.settings/
+
+# Кэш
+.npm
+.eslintcache
+.stylelintcache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Файлы сборки и временные файлы
+/frontend/build
+/frontend/dist
+/frontend/.cache
+/frontend/.next
+/backend/dist
+/backend/build
+/temp 
